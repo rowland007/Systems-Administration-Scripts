@@ -1,7 +1,13 @@
 #!/bin/bash
 
+# Define color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
 if [ "$EUID" -ne 0 ]; then
-    echo "Please run as root or use sudo."
+    echo -e "${RED}Please run as root or use sudo.${NC}"
     exit 1
 fi
 
@@ -22,17 +28,18 @@ if [ -f /etc/os-release ]; then
             export PKG_MANAGER="dnf"
             ;;
         *)
-            echo "Unsupported operating system: $OS. This script only supports Ubuntu, Debian, Fedora, CentOS, and RHEL."
+            echo -e "${RED}Unsupported operating system: $OS${NC}"
+            echo -e "${YELLOW}This script only supports Ubuntu, Debian, Fedora, CentOS, and RHEL.${NC}"
             exit 1
             ;;
     esac
 else
-    echo "Cannot determine operating system (no /etc/os-release file)"
+    echo -e "${RED}Cannot determine operating system (no /etc/os-release file)${NC}"
     exit 1
 fi
 
-echo "Detected OS: $OS"
-echo "Package Manager: $PKG_MANAGER"
+echo -e "${GREEN}Detected OS: $OS${NC}"
+echo -e "${GREEN}Package Manager: $PKG_MANAGER${NC}"
 
 # Add Docker repository based on package manager
 case $PKG_MANAGER in
@@ -59,15 +66,15 @@ case $PKG_MANAGER in
         ;;
     
     *)
-        echo "Docker repository setup not implemented for $OS"
+        echo -e "${RED}Docker repository setup not implemented for $OS${NC}"
         exit 1
         ;;
 esac
 
-echo "Docker repository setup completed for $OS"
+echo -e "${GREEN}Docker repository setup completed for $OS${NC}"
 
 # Install Docker packages based on package manager
-echo "Installing Docker packages..."
+echo -e "${YELLOW}Installing Docker packages...${NC}"
 case $PKG_MANAGER in
     "apt")
         apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -79,7 +86,10 @@ case $PKG_MANAGER in
         ;;
 esac
 
-echo "Testing Docker installation..."
-docker run hello-world
+echo -e "${YELLOW}Testing Docker installation...${NC}"
+if ! docker run hello-world; then
+    echo -e "${RED}Docker test failed. Please check the error messages above.${NC}"
+    exit 1
+fi
 
-echo "Docker installation completed successfully!"
+echo -e "${GREEN}Docker installation completed successfully!${NC}"
