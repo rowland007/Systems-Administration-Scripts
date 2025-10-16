@@ -1,28 +1,11 @@
 #!/bin/bash
 
-# Define color codes
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-BOLD_BLUE='\033[1;34m'
-NC='\033[0m' # No Color
+# Source common functions
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../../common.sh"
 
-clear
-# Signal ASCII Art Logo
-echo -e "${BLUE}"
-echo '    ███████╗██╗ ██████╗ ███╗   ██╗ █████╗ ██╗     '
-echo '    ██╔════╝██║██╔════╝ ████╗  ██║██╔══██╗██║     '
-echo '    ███████╗██║██║  ███╗██╔██╗ ██║███████║██║     '
-echo '    ╚════██║██║██║   ██║██║╚██╗██║██╔══██║██║     '
-echo '    ███████║██║╚██████╔╝██║ ╚████║██║  ██║███████╗'
-echo '    ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝'
-echo -e "${NC}"
-echo -e "${BOLD_BLUE}============================================================${NC}"
-echo -e "${BOLD_BLUE}                 Signal Desktop Installer                    ${NC}"
-echo -e "${BOLD_BLUE}       Privacy that fits in your pocket since 2013         ${NC}"
-echo -e "${BOLD_BLUE}============================================================${NC}"
-echo
+# Display Signal logo
+display_logo "Signal" "Privacy that fits in your pocket since 2013"
 
 # Check if running as root
 if [ "$EUID" -ne 0 ]; then

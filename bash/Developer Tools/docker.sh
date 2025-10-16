@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# Define color codes
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+# Source common functions
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../../common.sh"
+
+# Display Docker logo
+display_logo "Docker" "Build, Share, and Run Any App, Anywhere"
 
 if [ "$EUID" -ne 0 ]; then
     echo -e "${RED}Please run as root or use sudo.${NC}"
