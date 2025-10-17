@@ -1,11 +1,31 @@
 #!/bin/bash
 
-# Source common functions
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../../common.sh"
+# Define color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+WHITE='\033[1;37m'
+NC='\033[0m' # No Color
 
-# Display Docker logo
-display_logo "Docker" "Build, Share, and Run Any App, Anywhere"
+clear
+echo -e "${BLUE}"
+echo '    ██████╗   ██████╗   ██████╗██╗  ██╗███████╗██████╗'
+echo '    ██╔══██╗██╔═══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗'
+echo '    ██║  ██║██║   ██║██║     █████╔╝ █████╗  ██████╔╝'
+echo '    ██║  ██║██║   ██║██║     ██╔═██╗ ██╔══╝  ██╔══██╗'
+echo '    ██████╔╝╚██████╔╝╚██████╗██║  ██╗███████╗██║  ██║'
+echo '    ╚═════╝  ╚═════╝  ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝'
+echo
+echo -e "${CYAN}     ╔════════════════════════════════════════════════╗"
+echo -e "     ║           Docker Engine Installation           ║"
+echo -e "     ║     Build, Share, and Run Any App, Anywhere   ║"
+echo -e "     ║        Container Solutions Made Simple        ║"
+echo -e "     ╚════════════════════════════════════════════════╝${NC}"
+echo
+echo -e "${WHITE}     [ Containerize Your Applications with Ease ]${NC}"
+echo
 
 if [ "$EUID" -ne 0 ]; then
     echo -e "${RED}Please run as root or use sudo.${NC}"

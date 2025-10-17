@@ -4,7 +4,27 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+WHITE='\033[1;37m'
 NC='\033[0m' # No Color
+
+clear
+echo -e "${BLUE}"
+echo '    ██╗    ██╗██╗███╗   ██╗ ██╗ ██████╗ '
+echo '    ██║    ██║██║████╗  ██║███║██╔═████╗'
+echo '    ██║ █╗ ██║██║██╔██╗ ██║╚██║██║██╔██║'
+echo '    ██║███╗██║██║██║╚██╗██║ ██║████╔╝██║'
+echo '    ╚███╔███╔╝██║██║ ╚████║ ██║╚██████╔╝'
+echo '     ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝ ╚═╝ ╚═════╝ '
+echo
+echo -e "${CYAN}     ╔═══════════════════════════════════╗"
+echo -e "     ║     XFCE Windows 10 Theme        ║"
+echo -e "     ║  Transform Linux into Windows 10  ║"
+echo -e "     ╚═══════════════════════════════════╝${NC}"
+echo
+echo -e "${WHITE}     [ Kali Undercover - Stealth Mode ]${NC}"
+echo
 
 # Check if running as root
 if [ "$EUID" -ne 0 ]; then

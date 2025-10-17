@@ -4,7 +4,28 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+ORANGE='\033[0;33m'
+CYAN='\033[0;36m'
+WHITE='\033[1;37m'
 NC='\033[0m' # No Color
+
+clear
+echo -e "${ORANGE}"
+echo '     ██████╗██╗      ██████╗ ██╗   ██╗██████╗ ███████╗██╗      █████╗ ██████╗ ███████╗'
+echo '    ██╔════╝██║     ██╔═══██╗██║   ██║██╔══██╗██╔════╝██║     ██╔══██╗██╔══██╗██╔════╝'
+echo '    ██║     ██║     ██║   ██║██║   ██║██║  ██║█████╗  ██║     ███████║██████╔╝█████╗  '
+echo '    ██║     ██║     ██║   ██║██║   ██║██║  ██║██╔══╝  ██║     ██╔══██║██╔══██╗██╔══╝  '
+echo '    ╚██████╗███████╗╚██████╔╝╚██████╔╝██████╔╝██║     ███████╗██║  ██║██║  ██║███████╗'
+echo '     ╚═════╝╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝'
+echo -e "${CYAN}                                 TUNNEL DAEMON${NC}"
+echo
+echo -e "${ORANGE}     ╔════════════════════════════════════════════════════════════╗${NC}"
+echo -e "${ORANGE}     ║${NC}              Cloudflared Installation & Setup              ${ORANGE}║${NC}"
+echo -e "${ORANGE}     ║${NC}        Secure tunnels to your local web server           ${ORANGE}║${NC}"
+echo -e "${ORANGE}     ║${NC}     Connect your infrastructure to Cloudflare's edge     ${ORANGE}║${NC}"
+echo -e "${ORANGE}     ╚════════════════════════════════════════════════════════════╝${NC}"
+echo
 
 # Check if running as root
 if [ "$EUID" -ne 0 ]; then

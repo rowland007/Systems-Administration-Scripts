@@ -1,11 +1,29 @@
 #!/bin/bash
 
-# Source common functions
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../../common.sh"
+# Define color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+WHITE='\033[1;37m'
+NC='\033[0m' # No Color
 
-# Display Signal logo
-display_logo "Signal" "Privacy that fits in your pocket since 2013"
+clear
+echo -e "${BLUE}"
+echo '    ███████╗██╗ ██████╗ ███╗   ██╗ █████╗ ██╗     '
+echo '    ██╔════╝██║██╔════╝ ████╗  ██║██╔══██╗██║     '
+echo '    ███████╗██║██║  ███╗██╔██╗ ██║███████║██║     '
+echo '    ╚════██║██║██║   ██║██║╚██╗██║██╔══██║██║     '
+echo '    ███████║██║╚██████╔╝██║ ╚████║██║  ██║███████╗'
+echo '    ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝'
+echo
+echo -e "${CYAN}     ╔═══════════════════════════════════════════╗"
+echo -e "     ║         Signal Desktop Installer           ║"
+echo -e "     ║    Privacy that fits in your pocket       ║"
+echo -e "     ║         Say Hello to Privacy              ║"
+echo -e "     ╚═══════════════════════════════════════════╝${NC}"
+echo
 
 # Check if running as root
 if [ "$EUID" -ne 0 ]; then
